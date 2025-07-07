@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="StudentManagementSystem" default="compile" basedir=".">
+
+    <!-- Set global properties -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+
+    <!-- Clean build directory -->
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <!-- Compile source files -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}" />
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" />
+    </target>
+
+    <!-- Run the program -->
+    <target name="run" depends="compile">
+        <java classname="Main" classpath="${build.dir}" fork="true" />
+    </target>
+
+</project>
